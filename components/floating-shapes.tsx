@@ -1,6 +1,6 @@
 "use client"
 
-import { useRef } from "react"
+import { useEffect, useRef, useState } from "react"
 import { motion } from "framer-motion"
 
 interface FloatingShapesProps {
@@ -12,34 +12,55 @@ interface FloatingShapesProps {
 export default function FloatingShapes({ variant, count = 15, className = "" }: FloatingShapesProps) {
   const containerRef = useRef<HTMLDivElement>(null)
 
-  // Generate random shapes
-  const shapes = Array.from({ length: count }).map((_, i) => {
-    const size = Math.random() * 60 + 20
-    const xPos = Math.random() * 100
-    const yPos = Math.random() * 100
-    const duration = Math.random() * 20 + 10
-    const delay = Math.random() * 5
-    const opacity = Math.random() * 0.15 + 0.05
-    const rotation = Math.random() * 360
+  const [shapes, setShapes] = useState<Array<{
+    id: number
+    size: number
+    xPos: number
+    yPos: number
+    duration: number
+    delay: number
+    opacity: number
+    rotation: number
+    shapeType: "bubbles" | "squares" | "triangles"
+  }>>([]);
+  
+  useEffect(() => {
+    const shapes = Array.from({ length: count }).map((_, i) => {
+      const size = Math.random() * 60 + 20
+      const xPos = Math.random() * 100
+      const yPos = Math.random() * 100
+      const duration = Math.random() * 20 + 10
+      const delay = Math.random() * 5
+      const opacity = Math.random() * 0.15 + 0.05
+      const rotation = Math.random() * 360
+  
+      let shapeType: "bubbles" | "squares" | "triangles" = "bubbles";
+      if (variant === "mixed") {
+        const types: Array<"bubbles" | "squares" | "triangles"> = ["bubbles", "squares", "triangles"];
+        shapeType = types[Math.floor(Math.random() * types.length)];
+      } else {
+        shapeType = variant;
+      }
+      if (variant === "mixed") {
+        const types = ["bubbles", "squares", "triangles"]
+        shapeType = types[Math.floor(Math.random() * types.length)] as "bubbles" | "squares" | "triangles"
+      }
+  
+      return {
+        id: i,
+        size,
+        xPos,
+        yPos,
+        duration,
+        delay,
+        opacity,
+        rotation,
+        shapeType,
+      }
+    })
 
-    let shapeType = variant
-    if (variant === "mixed") {
-      const types = ["bubbles", "squares", "triangles"]
-      shapeType = types[Math.floor(Math.random() * types.length)] as "bubbles" | "squares" | "triangles"
-    }
-
-    return {
-      id: i,
-      size,
-      xPos,
-      yPos,
-      duration,
-      delay,
-      opacity,
-      rotation,
-      shapeType,
-    }
-  })
+    setShapes(shapes);
+  }, []);
 
   return (
     <div ref={containerRef} className={`absolute inset-0 overflow-hidden pointer-events-none ${className}`}>

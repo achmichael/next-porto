@@ -1,11 +1,21 @@
 import type { Metadata } from "next"
-import Hero from "@/components/hero"
-import About from "@/components/about"
-import Experience from "@/components/experience"
-import Projects from "@/components/projects"
-import Footer from "@/components/footer"
+import dynamic from "next/dynamic"
 import Navigation from "@/components/navigation"
 import FloatingShapes from "@/components/floating-shapes"
+
+// Lazy load components
+const Hero = dynamic(() => import("@/components/hero"), {
+  loading: () => (
+    <div className="min-h-screen flex items-center justify-center">
+      <div className="animate-pulse text-teal-600">Loading...</div>
+    </div>
+  ),
+})
+
+const About = dynamic(() => import("@/components/about"))
+const Experience = dynamic(() => import("@/components/experience"))
+const Projects = dynamic(() => import("@/components/projects"))
+const Footer = dynamic(() => import("@/components/footer"))
 
 export const metadata: Metadata = {
   title: "Achmad Michael Mushoharoin | Software Engineer",

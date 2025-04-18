@@ -4,6 +4,7 @@ import { useRef } from "react"
 import { motion, useInView } from "framer-motion"
 import Image from "next/image"
 import AnimatedBackground from "./animated-background"
+import logo from "../public/gdg-profile.jpg";
 
 export default function About() {
   const ref = useRef(null)
@@ -18,7 +19,7 @@ export default function About() {
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-          transition={{ duration: 0.5 }}
+          transition={{ duration: 1, delay: 0.1 }}
           className="text-center mb-16"
         >
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">About Me</h2>
@@ -29,14 +30,14 @@ export default function About() {
           <motion.div
             initial={{ opacity: 0, x: -50 }}
             animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -50 }}
-            transition={{ duration: 0.5, delay: 0.2 }}
+            transition={{ duration: 1, delay: 0.2 }}
             className="relative aspect-square max-w-md mx-auto"
           >
             <div className="absolute inset-0 bg-teal-500/20 rounded-lg transform rotate-6"></div>
             <div className="absolute inset-0 bg-teal-600/20 rounded-lg transform -rotate-3"></div>
             <div className="relative h-full w-full overflow-hidden rounded-lg border-2 border-teal-500 shadow-xl group">
               <Image
-                src="/placeholder.svg?height=500&width=500"
+                src={logo}
                 alt="Achmad Michael Mushoharoin"
                 width={500}
                 height={500}
@@ -49,7 +50,7 @@ export default function About() {
           <motion.div
             initial={{ opacity: 0, x: 50 }}
             animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: 50 }}
-            transition={{ duration: 0.5, delay: 0.4 }}
+            transition={{ duration: 1, delay: 0.4 }}
             className="space-y-6"
           >
             <h3 className="text-2xl font-bold text-gray-900 dark:text-white">Who am I?</h3>
@@ -85,6 +86,7 @@ export default function About() {
                   "GraphQL",
                   "Tailwind CSS",
                   "Git",
+                  'Docker',
                   "RESTful APIs",
                 ].map((skill) => (
                   <span

@@ -5,25 +5,25 @@ import { motion, useInView } from "framer-motion"
 import { Calendar, Briefcase, GraduationCap } from "lucide-react"
 import AnimatedBackground from "./animated-background"
 
-// Sample experience data - replace with actual data
+
 const experiences = [
   {
     id: 1,
-    title: "Senior Software Engineer",
-    company: "Tech Innovations Inc.",
-    period: "2022 - Present",
+    title: "Backend Developer (Intern)",
+    company: "Technosmith Inagata",
+    period: "Desember 2024 - April 2025",
     description:
-      "Leading development of web applications using React and Next.js. Implementing CI/CD pipelines and mentoring junior developers.",
+      "Assisted in developing backend services using laravel. Collaborated with frontend developers to integrate APIs.",
     icon: Briefcase,
     isCurrent: true, // Mark this as the current position
   },
   {
     id: 2,
-    title: "Full Stack Developer",
-    company: "Digital Solutions Ltd.",
-    period: "2020 - 2022",
+    title: "Mobile Developer (Intern)",
+    company: "Kriingg",
+    period: "Januari 2025 - Present",
     description:
-      "Developed and maintained multiple client projects. Created RESTful APIs and integrated third-party services.",
+      "Worked on mobile application development using React Native. Participated in code reviews and agile ceremonies.",
     icon: Briefcase,
     isCurrent: false,
   },
@@ -31,7 +31,7 @@ const experiences = [
     id: 3,
     title: "Junior Web Developer",
     company: "Web Creators Co.",
-    period: "2018 - 2020",
+    period: "2024 - Present",
     description:
       "Built responsive websites and implemented UI components. Collaborated with designers to ensure pixel-perfect implementations.",
     icon: Briefcase,
@@ -39,10 +39,10 @@ const experiences = [
   },
   {
     id: 4,
-    title: "Computer Science Degree",
-    company: "University of Technology",
+    title: "Informatics Engineering Undergraduate",
+    company: "University islam Negeri Maulana Malik Ibrahim Malang",
     period: "2014 - 2018",
-    description: "Bachelor's degree in Computer Science with focus on software engineering and web technologies.",
+    description: "Studied various aspects of software engineering, including algorithms, data structures, and web development.",
     icon: GraduationCap,
     isCurrent: false,
   },
@@ -136,7 +136,9 @@ export default function Experience() {
                 return (
                   <motion.div
                     key={exp.id}
-                    ref={(el) => (itemRefs.current[index] = el)}
+                    ref={(el: HTMLDivElement | null) => {
+                      itemRefs.current[index] = el;
+                    }}
                     initial={{ opacity: 0, y: 50 }}
                     animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
                     transition={{ duration: 0.5, delay: index * 0.1 }}

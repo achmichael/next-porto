@@ -5,6 +5,14 @@ import { motion, useInView, AnimatePresence } from "framer-motion"
 import Image from "next/image"
 import { ChevronLeft, ChevronRight, ExternalLink, Github } from "lucide-react"
 import AnimatedBackground from "./animated-background"
+import belanjaOnline from '../public/belanja-online.png';
+import taskManagement from '../public/task-management-app.png';
+import currency from '../public/currency.png';
+import fitnessHub from '../public/fitness-hub.png';
+import graphQL from '../public/graphQL.png';
+import portfolio from '../public/portfolio.png';
+import santoso from '../public/santoso.png';
+import branding from '../public/branding.png';
 
 // Sample project data - replace with actual data
 const projects = [
@@ -13,7 +21,7 @@ const projects = [
     title: "E-commerce Platform",
     description:
       "A full-featured e-commerce platform with product management, cart functionality, and payment integration.",
-    image: "/placeholder.svg?height=600&width=800",
+    image: belanjaOnline,
     tags: ["Next.js", "Tailwind CSS", "Stripe", "MongoDB"],
     liveUrl: "#",
     githubUrl: "#",
@@ -22,8 +30,8 @@ const projects = [
     id: 2,
     title: "Task Management App",
     description: "A collaborative task management application with real-time updates and team collaboration features.",
-    image: "/placeholder.svg?height=600&width=800",
-    tags: ["React", "Node.js", "Socket.io", "PostgreSQL"],
+    image: taskManagement,
+    tags: ["React", 'Express', 'MySQL'],
     liveUrl: "#",
     githubUrl: "#",
   },
@@ -31,20 +39,56 @@ const projects = [
     id: 3,
     title: "Portfolio Website",
     description: "A responsive portfolio website with smooth animations and modern design.",
-    image: "/placeholder.svg?height=600&width=800",
+    image: portfolio,
     tags: ["Next.js", "Framer Motion", "Tailwind CSS"],
     liveUrl: "#",
     githubUrl: "#",
   },
   {
     id: 4,
-    title: "Weather Dashboard",
-    description: "A weather dashboard that displays current and forecasted weather data for multiple locations.",
-    image: "/placeholder.svg?height=600&width=800",
+    title: "Currency",
+    description: "A currency converter app that provides real-time exchange rates and conversion functionality.",
+    image: currency,
     tags: ["React", "OpenWeather API", "Chart.js"],
     liveUrl: "#",
     githubUrl: "#",
   },
+  {
+    id: 5,
+    title: "Fitness Hub",
+    description: "A fitness tracking app that helps users monitor their workouts and progress.",
+    image: fitnessHub,
+    tags: ["PHP Native", "PostgreSQL", "Tailwind CSS"],
+    liveUrl: "#",
+    githubUrl: "#",
+  },
+  {
+    id: 6,
+    title: 'GraphQL API',
+    description: 'A GraphQL API for managing food recipes and ingredients with Authentication and Authorization.',
+    image: graphQL,
+    tags: ['Next JS', 'MongoDB'],
+    liveUrl: "#",
+    githubUrl: "#",
+  },
+  {
+    id: 7,
+    title: "Santoso",
+    description: "A company profile website for Santoso, showcasing their services and cigarettes.",
+    image: santoso,
+    tags: ["React"],
+    liveUrl: "#",
+    githubUrl: "#",
+  },
+  {
+    id: 8,
+    title: "Branding Project",
+    description: "A branding is a company or product identity design project, including logo and visual elements.",
+    image: branding,
+    tags: ["Next JS", "MongoDB", 'Tailwind CSS', 'Cloudinary'],
+    liveUrl: "#",
+    githubUrl: "#",
+  }
 ]
 
 export default function Projects() {
@@ -78,7 +122,6 @@ export default function Projects() {
     setCurrentIndex(index)
   }
 
-  // Variants for animations
   const slideVariants = {
     enter: (direction: number) => ({
       x: direction > 0 ? 1000 : -1000,

@@ -32,7 +32,7 @@ export default function Footer() {
             className="flex space-x-6 mb-8"
           >
             <a
-              href="#"
+              href="https://github.com/achmichael"
               className="group relative text-gray-600 dark:text-gray-400 hover:text-teal-600 dark:hover:text-teal-400 transition-colors p-2"
               aria-label="GitHub"
             >
@@ -40,7 +40,7 @@ export default function Footer() {
               <span className="absolute inset-0 rounded-full bg-gray-100 dark:bg-gray-800 scale-0 group-hover:scale-100 transition-transform duration-300"></span>
             </a>
             <a
-              href="#"
+              href="https://www.linkedin.com/in/achmad-michael-2b84b928b?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
               className="group relative text-gray-600 dark:text-gray-400 hover:text-teal-600 dark:hover:text-teal-400 transition-colors p-2"
               aria-label="LinkedIn"
             >
@@ -56,7 +56,7 @@ export default function Footer() {
               <span className="absolute inset-0 rounded-full bg-gray-100 dark:bg-gray-800 scale-0 group-hover:scale-100 transition-transform duration-300"></span>
             </a>
             <a
-              href="mailto:contact@example.com"
+              href="mailto:achmadmichael03@gmail.com"
               className="group relative text-gray-600 dark:text-gray-400 hover:text-teal-600 dark:hover:text-teal-400 transition-colors p-2"
               aria-label="Email"
             >
